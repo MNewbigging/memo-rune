@@ -1,60 +1,13 @@
-# React, TypeScript, Webpack, Mobx, SASS Template
+## How to play Memo Rune
+        
+Memo Rune is a simple pair matching game - find all the matching pairs to win
+        
+The runes are face-down normally. On your turn, select a rune to flip it over
+        
+Each turn, you can select two runes to flip over - if they both match you get a point and those runes are removed.
 
-A simple template for your projects; includes react, typescript, webpack, mobx, sass and a custom module declaration for creating react components from SVGs.
+If you do get a match, you can go again!
+        
+Watch out though, the panel on the left shows a collection of 'danger runes' which are non-matching. If you uncover two runes that both appear in that collection of danger runes it gives you a negative point - the red score in brackets. When this happens, the danger runes are shuffled.
 
-### 3...
-
-Install the thing:
-
-```
-npm install
-```
-
-#### 2...
-
-Run the thing:
-
-```
-npm run dev
-```
-
-#### 1...
-
-Build the thing:
-
-```
-npm run build
-```
-
-#### GO!
-
-Show the world, with github pages! See the full instructions for setup here: https://github.com/gitname/react-gh-pages
-
-The gist is:
-
-```
-npm install gh-pages --save-dev
-```
-
-In package.json, add a 'homepage' property with the url to your project:
-
-```
-//...
-"homepage": "http://username.github.io/repo-name"
-```
-
-Still in package.json, under the 'scripts' section, add a couple more scripts:
-
-```
-"scripts": {
-  //...
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d dist"
-}
-```
-
-Finally, when you want to deploy just run:
-
-```
-npm run deploy
-```
+Choose the game size to determine how many rune pairs to play with - this game also supports local two player!

@@ -36,19 +36,77 @@ export class MRMenu extends React.Component<MenuProps> {
     const { mrState } = this.props;
     return (
       <React.Fragment key={'normal-menu'}>
-        <RadioGroup
-          label={'Game size:'}
-          onChange={(event: React.FormEvent<HTMLInputElement>) =>
-            mrState.setGameSize(parseInt(event.currentTarget.value, 10))
-          }
-          selectedValue={mrState.gameSize}
-        >
-          <Radio label={`XL: ${MRPairCount.XL} pairs`} value={MRPairCount.XL} />
-          <Radio label={`L: ${MRPairCount.L} pairs`} value={MRPairCount.L} />
-          <Radio label={`M: ${MRPairCount.M} pairs`} value={MRPairCount.M} />
-          <Radio label={`S: ${MRPairCount.S} pairs`} value={MRPairCount.S} />
-          <Radio label={`XS: ${MRPairCount.XS} pairs`} value={MRPairCount.XS} />
-        </RadioGroup>
+        <form id={'game-size'}>
+          <label id={'form-label'} htmlFor={'game-size'}>
+            Game size:
+          </label>
+
+          <div>
+            <label htmlFor={'xl'}>
+              <input
+                type={'radio'}
+                id={'xl'}
+                name={'size'}
+                checked={mrState.gameSize === MRPairCount.XL}
+                onChange={() => mrState.setGameSize(MRPairCount.XL)}
+              />
+              XL: {MRPairCount.XL} pairs
+            </label>
+          </div>
+
+          <div>
+            <label htmlFor={'l'}>
+              <input
+                type={'radio'}
+                id={'l'}
+                name={'size'}
+                checked={mrState.gameSize === MRPairCount.L}
+                onChange={() => mrState.setGameSize(MRPairCount.L)}
+              />
+              L: {MRPairCount.L} pairs
+            </label>
+          </div>
+
+          <div>
+            <label htmlFor={'m'}>
+              <input
+                type={'radio'}
+                id={'m'}
+                name={'size'}
+                checked={mrState.gameSize === MRPairCount.M}
+                onChange={() => mrState.setGameSize(MRPairCount.M)}
+              />
+              M: {MRPairCount.M} pairs
+            </label>
+          </div>
+
+          <div>
+            <label htmlFor={'s'}>
+              <input
+                type={'radio'}
+                id={'s'}
+                name={'size'}
+                checked={mrState.gameSize === MRPairCount.S}
+                onChange={() => mrState.setGameSize(MRPairCount.S)}
+              />
+              S: {MRPairCount.S} pairs
+            </label>
+          </div>
+
+          <div>
+            <label htmlFor={'xs'}>
+              <input
+                type={'radio'}
+                id={'xs'}
+                name={'size'}
+                checked={mrState.gameSize === MRPairCount.XS}
+                onChange={() => mrState.setGameSize(MRPairCount.XS)}
+              />
+              XS: {MRPairCount.XS} pairs
+            </label>
+          </div>
+        </form>
+
         <div className={'btn-container'}>
           <Button
             key={'start1p-btn'}

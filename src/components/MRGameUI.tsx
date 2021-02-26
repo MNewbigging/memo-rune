@@ -2,8 +2,6 @@ import React from 'react';
 
 import { observer } from 'mobx-react';
 
-import { Icon } from '@blueprintjs/core';
-
 import { MemoRuneState } from '../MemoRuneState';
 
 import './mr-game-ui.scss';
@@ -25,7 +23,7 @@ export class MRGameUI extends React.Component<UIProps> {
       <div key={'mr-ui'} className={'mr-ui'}>
         <div className={'button-outer'}>
           <div className={'button'} onClick={() => mrState.pauseGame()}>
-            <Icon icon={'menu'} iconSize={24} />
+            Menu
           </div>
         </div>
         {scoresToRender}

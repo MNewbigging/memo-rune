@@ -1,0 +1,82 @@
+.mr-ui {
+  width: 324px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .button-outer {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .button {
+      color: white; // need to pick the same grey as on tiles
+      width: 50px;
+      height: 56px;
+      background: url('/dist/assets/memo-rune/runeGrey_tile_036.png') no-repeat;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:hover {
+        width: 54px;
+        height: 60px;
+        background: url('/dist/assets/memo-rune/runeGrey_tileOutline_036.png') no-repeat;
+      }
+    }
+  }
+
+  .scores-outer {
+    margin-right: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .scores {
+      font-size: 24px;
+      font-weight: 220;
+
+      &:first-of-type {
+        margin-right: 20px;
+      }
+
+      &.current-turn {
+        border-top: 2px solid black;
+        border-radius: 8px;
+        padding: 10px;
+        animation: borderPulse 3s ease-in-out infinite;
+      }
+
+      &.winner {
+        background: linear-gradient(
+          10deg,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(255, 255, 255, 1) 71%,
+          rgba(83, 215, 43, 1) 100%
+        );
+      }
+
+      .negative-score {
+        color: red;
+      }
+    }
+  }
+}
+
+@keyframes borderPulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Stick&display=swap');
+
+* {
+  font-family: 'Stick', sans-serif;
+}
+
 .memo-rune {
   width: 100%;
   height: 100%;
@@ -7,6 +13,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &::before {
+    content: '';
+    background-color: rgba(137, 137, 82, 0.7);
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+  }
 
   .left-panel {
     min-width: 350px;

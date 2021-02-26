@@ -3,8 +3,6 @@ import React from 'react';
 import { observable } from 'mobx';
 import { observer } from 'mobx-react';
 
-import { Button, Drawer, Radio, RadioGroup } from '@blueprintjs/core';
-
 import { MemoRuneState, MRPairCount } from '../MemoRuneState';
 
 import './mr-menu.scss';
@@ -15,7 +13,7 @@ interface MenuProps {
 
 @observer
 export class MRMenu extends React.Component<MenuProps> {
-  @observable private drawerOpen: boolean = false;
+  @observable private drawerOpen = false;
 
   public render() {
     const { mrState } = this.props;
@@ -26,7 +24,6 @@ export class MRMenu extends React.Component<MenuProps> {
     return (
       <div key={'mr-menu'} className={'mr-menu'}>
         {toRender}
-        {this.renderHowToPlayDrawer()}
       </div>
     );
   }
@@ -108,22 +105,14 @@ export class MRMenu extends React.Component<MenuProps> {
         </form>
 
         <div className={'btn-container'}>
-          <Button
-            key={'start1p-btn'}
-            className={'menu-btn'}
-            minimal={true}
-            text={'1 Player'}
-            onClick={() => mrState.startGame(1)}
-          />
+          <button key={'start1p-btn'} className={'menu-btn'} onClick={() => mrState.startGame(1)}>
+            1 Player
+          </button>
         </div>
         <div className={'btn-container'}>
-          <Button
-            key={'start2p-btn'}
-            className={'menu-btn'}
-            minimal={true}
-            text={'2 Player'}
-            onClick={() => mrState.startGame(2)}
-          />
+          <button key={'start2p-btn'} className={'menu-btn'} onClick={() => mrState.startGame(2)}>
+            2 Player
+          </button>
         </div>
 
         {this.renderCommonMenuButtons()}
@@ -137,23 +126,15 @@ export class MRMenu extends React.Component<MenuProps> {
     return (
       <React.Fragment key={'ingame-menu'}>
         <div className={'btn-container'}>
-          <Button
-            key={'resume-btn'}
-            className={'menu-btn'}
-            minimal={true}
-            text={'Resume'}
-            onClick={() => mrState.resumeGame()}
-          />
+          <button key={'resume-btn'} className={'menu-btn'} onClick={() => mrState.resumeGame()}>
+            Resume
+          </button>
         </div>
 
         <div className={'btn-container'}>
-          <Button
-            key={'endgame-btn'}
-            className={'menu-btn'}
-            minimal={true}
-            text={'End game'}
-            onClick={() => mrState.endGame()}
-          />
+          <button key={'endgame-btn'} className={'menu-btn'} onClick={() => mrState.endGame()}>
+            End game
+          </button>
         </div>
         {this.renderCommonMenuButtons()}
       </React.Fragment>
@@ -164,48 +145,15 @@ export class MRMenu extends React.Component<MenuProps> {
     return (
       <>
         <div className={'btn-container'}>
-          <Button
+          <button
             key={'how-to-btn'}
             className={'menu-btn'}
-            minimal
-            text={'How to play'}
-            onClick={() => (this.drawerOpen = !this.drawerOpen)}
-          />
+            onClick={() => this.props.mrState.viewHowToPlay()}
+          >
+            How to play
+          </button>
         </div>
       </>
-    );
-  }
-
-  private renderHowToPlayDrawer() {
-    return (
-      <Drawer
-        key={'mr-drawer'}
-        isOpen={this.drawerOpen}
-        canOutsideClickClose
-        canEscapeKeyClose
-        onClose={() => (this.drawerOpen = !this.drawerOpen)}
-      >
-        <div className={'drawer-content'}>
-          <h2>How to play Memo Rune</h2>
-          <p>Memo Rune is a simple pair matching game - find all the matching pairs to win.</p>
-          <p>The runes are face-down normally. On your turn, select a rune to flip it over.</p>
-          <p>
-            Each turn, you can select two runes to flip over - if they both match you get a point
-            and those runes are removed.
-          </p>
-          <p>If you do get a match, you can go again!</p>
-          <p>
-            Watch out though, the panel on the left shows a collection of 'danger runes' which are
-            non-matching. If you uncover two runes that both appear in that collection of danger
-            runes it gives you a negative point - the red score in brackets. When this happens, the
-            danger runes are shuffled.
-          </p>
-          <p>
-            Choose the game size to determine how many rune pairs to play with - this game also
-            supports local two player!
-          </p>
-        </div>
-      </Drawer>
     );
   }
 }

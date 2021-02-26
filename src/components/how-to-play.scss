@@ -1,10 +1,8 @@
-.mr-menu {
+.how-to-play {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  font-size: 14pt;
 
   .btn-container {
     width: 110px;
@@ -16,7 +14,6 @@
     align-items: center;
 
     .menu-btn {
-      font-size: 11pt;
       outline: none;
       border: none;
       box-shadow: none;
@@ -34,26 +31,8 @@
       }
     }
   }
-}
 
-.drawer-content {
-  padding: 10px;
-
-  p {
-    margin-bottom: 20px;
-  }
-}
-
-form {
-  margin-bottom: 20px;
-
-  #form-label {
-    margin-bottom: 10px;
-    display: inline-block;
-  }
-
-  input[type='radio'] {
-    margin-right: 5px;
-    margin-bottom: 10px;
+  .content {
+    width: 70%;
   }
 }

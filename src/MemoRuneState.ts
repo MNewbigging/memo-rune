@@ -5,6 +5,7 @@ import { action, observable } from 'mobx';
 export enum MRScreen {
   MENU,
   GAME,
+  HOW_TO_PLAY,
 }
 
 export enum MRPairCount {
@@ -35,6 +36,14 @@ export class MemoRuneState {
 
   @action endGame() {
     this.gameState = undefined;
+  }
+
+  @action viewHowToPlay() {
+    this.mrScreen = MRScreen.HOW_TO_PLAY;
+  }
+
+  @action viewMenu() {
+    this.mrScreen = MRScreen.MENU;
   }
 
   @action setGameSize(size: number) {

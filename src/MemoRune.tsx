@@ -3,6 +3,7 @@ import React from 'react';
 import { observer } from 'mobx-react';
 
 import { MRGameUI } from './components/MRGameUI';
+import { MRHowToPlay } from './components/MRHowToPlay';
 import { MRMenu } from './components/MRMenu';
 import { Rune } from './components/Rune';
 import { MemoRuneState, MRScreen } from './MemoRuneState';
@@ -22,6 +23,8 @@ export class MemoRune extends React.Component {
       case MRScreen.GAME:
         toRender.push(this.renderGame());
         break;
+      case MRScreen.HOW_TO_PLAY:
+        toRender.push(<MRHowToPlay mrState={this.mrState} />);
     }
 
     return (

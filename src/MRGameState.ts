@@ -1,4 +1,4 @@
-import { IRune, RuneUtils, RuneState } from './RuneUtils';
+import { IRune, RuneState, RuneUtils } from './RuneUtils';
 
 import { action, observable } from 'mobx';
 
@@ -7,11 +7,11 @@ export class MRGameState {
   @observable public pairedRunes: IRune[] = [];
   @observable public dangerRunes: IRune[] = [];
   @observable public runes: IRune[];
-  @observable public p1Pairs: number = 0;
-  @observable public p1DangerRunes: number = 0;
-  @observable public p2Pairs: number = 0;
-  @observable public p2DangerRunes: number = 0;
-  @observable public p1Turn: boolean = true;
+  @observable public p1Pairs = 0;
+  @observable public p1DangerRunes = 0;
+  @observable public p2Pairs = 0;
+  @observable public p2DangerRunes = 0;
+  @observable public p1Turn = true;
   @observable public winner?: number;
 
   constructor(public pairCount: number, public playerCount: number = 2) {
@@ -84,7 +84,7 @@ export class MRGameState {
     }
   }
 
-  private gotRunePair = () => {
+  private readonly gotRunePair = () => {
     // Update selected runes to be paired
     this.selectedRunes.forEach((r) => {
       r.state = RuneState.PAIRED;

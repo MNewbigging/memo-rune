@@ -10,6 +10,7 @@ import './rune.scss';
 interface RuneProps {
   rune: IRune;
   selectRune?: (runeId: number) => void;
+  pairedRune?: boolean;
 }
 
 @observer
@@ -17,7 +18,7 @@ export class Rune extends React.Component<RuneProps> {
   @observable private hover: boolean = false;
 
   public render() {
-    const { rune, selectRune } = this.props;
+    const { rune, selectRune, pairedRune } = this.props;
 
     // Rune appearance depends on its state
     let pos = `${rune.posX}px ${rune.posY}px`;
@@ -37,6 +38,10 @@ export class Rune extends React.Component<RuneProps> {
       case RuneState.DANGER_MATCH:
         classes.push('danger-match');
         break;
+    }
+
+    if (pairedRune) {
+      classes.push('panel');
     }
 
     const style = {

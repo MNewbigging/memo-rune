@@ -67,7 +67,7 @@ export class MemoRune extends React.Component {
 
     const pairRunes: JSX.Element[] = [];
     gameState.pairedRunes.forEach((pr) => {
-      pairRunes.push(<Rune key={'pr' + pr.id} rune={pr} />);
+      pairRunes.push(<Rune key={'pr' + pr.id} rune={pr} pairedRune />);
     });
 
     return (
